@@ -16,6 +16,10 @@
 </template>
 
 <script>
+  import PostService from '../PostService';
+
+  const postService = new PostService();
+
 export default {
   name:'PostForm',
   data(){
@@ -28,7 +32,16 @@ export default {
   methods{
     onSubmit(){
       this.loading = true;
+      const post = {
+        title: this.title,
+        body: this.body
+      };
 
+      postService.writePost(post)
+        .then(res => {
+          console.log(res.data);
+        })
+        .catch(err => console.error(err));
     }
   }
 
