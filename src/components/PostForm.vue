@@ -51,7 +51,7 @@ export default {
           this.loading = false;
           this.body = '';
           this.title = '';
-          console.log(res.data);
+          this.$emit('postCreated', res.data);
         })
         .catch(err => console.error(err));
     },

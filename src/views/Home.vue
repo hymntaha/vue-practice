@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="row">
-
+      <div class="col s6">
+        <PostForm @postCreated="addPost"/>
+      </div>
     </div>
     <div class="row">
       <div class="col s6" v-for="(post, index) in posts" v-bind:item="post" :index="index"
@@ -38,6 +40,11 @@
         posts:[]
       }
     },
+    methods:{
+      addPost(post) {
+        this.posts.unshift(post)
+      }
+    }
     created(){
       postService.getAllPosts()
         .then(res => {
