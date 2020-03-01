@@ -37,6 +37,10 @@ export default {
   methods{
     onSubmit(){
       this.loading = true;
+      if (!this.validForm()) {
+        this.loading = false
+        return;
+      }
       const post = {
         title: this.title,
         body: this.body
