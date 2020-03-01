@@ -59,4 +59,7 @@ export default {
   .form{
     margin: 50px;
   }
+  .progress{
+    margin:100px 0;
+  }
 </style>
