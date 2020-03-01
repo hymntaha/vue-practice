@@ -13,6 +13,10 @@
     </div>
     <button class="waves-effect waves-light btn"></button>
   </form>
+  <div class="progress" v-else-if="loading">
+    <div class="indeterminate">
+    </div>
+  </div>
 </template>
 
 <script>
@@ -39,6 +43,9 @@ export default {
 
       postService.writePost(post)
         .then(res => {
+          this.loading = false;
+          this.body = '';
+          this.title = '';
           console.log(res.data);
         })
         .catch(err => console.error(err));
