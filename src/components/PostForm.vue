@@ -16,7 +16,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name:'PostForm',
+  data(){
+    return {
+      loading: false,
+      title: '',
+      body:''
+    }
+  }
+
+};
 </script>
 
 <style></style>
