@@ -30,7 +30,8 @@ export default {
     return {
       loading: false,
       title: '',
-      body:''
+      body:'',
+      errors:{}
     }
   },
   methods{
@@ -49,6 +50,19 @@ export default {
           console.log(res.data);
         })
         .catch(err => console.error(err));
+    },
+    validForm(){
+      this.errors = {};
+      if (this.title.trim() === '') {
+        this.errors.title = 'Title '
+      };
+      if (this.body.trim() === '') {
+        this.errors.body = 'Body'
+      };
+
+      if (Object.keys(this.errors).length > 0) {
+        return false;
+      } else return true;
     }
   }
 
