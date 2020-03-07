@@ -16,8 +16,8 @@
             <p class="timestamp">{{post.createdAt}}</p>
           </div>
           <div class="card-action">
-            <a href="#">Edit</a>
-            <a href="#" class="delete-btn">Delete</a>
+            <a href="#" @click="editPost(post)">Edit</a>
+            <a href="#" class="delete-btn" @click="deletePost(post.id)">Delete</a>
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@
       addPost(post) {
         this.posts.unshift(post)
       }
-    }
+    },
     created(){
       postService.getAllPosts()
         .then(res => {
